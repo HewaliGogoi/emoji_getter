@@ -43,7 +43,7 @@ const Input = () => {
         //idetifying the emoji format from the data input
         //(emoji[e] ? emoji[e] : e)
         var dataArray = data.split(' ');
-        dataArray = dataArray.map((e) => (emoji.filter((ele) => (ele.name == e ? ele.symbol : ele.name))));
+        dataArray = dataArray.map((e) => (emoji[e] ? emoji[e] : e));
         // console.log(dataArray);
         setData(dataArray.join(' '));
     },[data]);
@@ -89,7 +89,6 @@ const Input = () => {
                 <input type="text" placeholder='Type here...' value={data} onChange={(e) => handleChange(e)}/>
                 <button onClick={handleSubmit}>Submit</button>
             </div>
-            {/* <button list={list}>View Page</button> */}
             <div style={{width:"50%", borderLeft:"2px solid #cecece"}}>
                 <h4>Output</h4>
                 {

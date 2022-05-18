@@ -16,31 +16,11 @@
   "profile": {
     "name": "typicode"
   },
-  "emojiData": [
+  "emojiData": 
     {
-      "id": 1,
-      "name": "::sad::",
-      "emoji": "😔"
-    },
-    {
-      "id": 2,
-      "name": "::happy::",
-      "emoji": "😀"
-    },
-    {
-      "id": 3,
-      "name": "::smiley::",
-      "emoji": "🙂"
-    },
-    {
-      "name": "::girl::",
-      "emoji": "🙎‍♀‍",
-      "id": 4
-    },
-    {
-      "name": "::boy::",
-      "symbol": "🦹‍♂‍",
-      "id": 5
+      "::sad::": "😔",
+      "::happy::": "😀",
+      "::smiley::": "🙂"
     }
-  ]
+    
 }

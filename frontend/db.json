@@ -16,10 +16,9 @@
   "profile": {
     "name": "typicode"
   },
-
-  "emojiData" : {
-      "::happy::" : "😀",
-      "::sad::" : "😔",
-      "::smiley::" : "🙂"
+  "emojiData": {
+    "::happy::": "😀",
+    "::sad::": "😔",
+    "::smiley::": "🙂"
   }
 }

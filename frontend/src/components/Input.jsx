@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Input = () => {
     const [data, setData] = useState('');           //useState for text data
     const [list, setList] = useState([]);           //useState for listing the data in the output
-    const [emoji, setEmoji] = useState({});         //useState for storing the emojis from the json server
+    const [emoji, setEmoji] = useState([]);         //useState for storing the emojis from the json server
     const [newName, setNewName] = useState('');     //useState for storing a new emoji name from the user input
     const [newEmoji, setNewEmoji] = useState('');   //useState for storing a new emoji from the user input
     const [newEmojiList, setNewEmojiList] = useState({});   //useState for listing the new emojis from the user input
@@ -40,10 +40,10 @@ const Input = () => {
 
             getEmojiData();
 
-        //idetifying the emoji format fron the data input
-
+        //idetifying the emoji format from the data input
+        //(emoji[e] ? emoji[e] : e)
         var dataArray = data.split(' ');
-        dataArray = dataArray.map((e) => (emoji[e] ? emoji[e] : e));
+        dataArray = dataArray.map((e) => (emoji.filter((ele) => (ele.name == e ? ele.symbol : ele.name))));
         // console.log(dataArray);
         setData(dataArray.join(' '));
     },[data]);
@@ -60,19 +60,17 @@ const Input = () => {
     }
 
     const handleAddEmoji = () => {
-        console.log({...emoji});
-        let newObj = {};
-        newObj[newName] = newEmoji;
         let payload = {
-            ...emoji,
-            newObj
+            "name" : newName,
+            "emoji" : newEmoji
         }
         fetch(`http://localhost:3004/emojiData`, {
             method : 'POST',
             body : JSON.stringify(payload),
             headers : { "content-Type" : "application/json" }
         })
-        .then((e) => getEmojiData())
+        .then((e) => setEmoji([...emoji, e]))
+        console.log(emoji);
     }
     
 
